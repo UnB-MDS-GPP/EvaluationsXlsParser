@@ -1,0 +1,7 @@
+bin/*
+*.class
+*.war
+*.ear
+.classpath
+/bin
+
