@@ -17,7 +17,7 @@ public class ListFiles {
 				files = listOfFiles[i].getName();
 
 				if (files.endsWith(".xls") || files.endsWith(".XLS")) {
-					filesList.add(files);
+					filesList.add(path+files);
 				}
 			}
 		}
