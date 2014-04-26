@@ -76,28 +76,6 @@ public class ExcelFileReader {
 		return cellVectorHolder;
 	}
 
-	public void printCellDataToConsole() throws IOException {
-		int startRow = 11;
-		this.dataHolder = this.readExcelFile(); // xls file rows
-
-		for (int i=startRow; i < this.dataHolder.size();i++) {
-			Vector cellStoreVector = (Vector)this.dataHolder.elementAt(i); // single row
-			if( this.isRowEmpty(cellStoreVector) )
-				break;
-
-			System.out.println(this.getPublishedWorks(cellStoreVector, this.year));
-			/*for (int j=0; j < cellStoreVector.size();j++) {
-				HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(j);
-				String stringCellValue = myCell.toString();
-
-				//System.out.println("I: "+i+"\nJ: "+j+"\n");
-				System.out.print(stringCellValue+"\t");
-			}
-
-			System.out.println();*/
-		}
-	}
-
 	public String getAreaReview() {
 		Vector cellStoreVector = (Vector)this.dataHolder.elementAt(5);
 		String area = "";
@@ -115,6 +93,46 @@ public class ExcelFileReader {
 		return area;
 	}
 
+	public ArrayList<EvaluationXlsRowFieldsStorage> getEvaluationFromXslFile() throws IOException {
+		ArrayList<EvaluationXlsRowFieldsStorage> rowData = new ArrayList<EvaluationXlsRowFieldsStorage>();
+		EvaluationXlsRowFieldsStorage evaluation;
+
+		int startRow = 11;
+		this.dataHolder = this.readExcelFile(); // xls file rows
+
+		for (int i=startRow; i < this.dataHolder.size();i++) {
+			Vector cellStoreVector = (Vector)this.dataHolder.elementAt(i); // single row
+
+			if( this.isRowEmpty(cellStoreVector) ) // Do not continue if its the end of the file
+				break;
+
+			evaluation = new EvaluationXlsRowFieldsStorage();
+
+			evaluation.setAcronym(this.getAcronym(cellStoreVector));
+			evaluation.setArticlesPublishedConferenceProceedings(this.getArticlesPublishedConferenceProceedings(cellStoreVector));
+			evaluation.setArticlesPublishedJournals(this.getArticlesPublishedJournals(cellStoreVector));
+			evaluation.setArtisticProduction(this.getArtisticProduction(cellStoreVector, this.year));
+			evaluation.setChapters(this.getChapters(cellStoreVector));
+			evaluation.setCollections(this.getCollections(cellStoreVector));
+			evaluation.setDissertations(this.getDissertations(cellStoreVector));
+			evaluation.setDoctorateYear(this.getDoctorateYear(cellStoreVector));
+			evaluation.setEntries(this.getEntries(cellStoreVector));
+			evaluation.setInetegralText(this.getInetegralText(cellStoreVector));
+			evaluation.setMastersDegreeYear(this.getMastersDegreeYear(cellStoreVector));
+			evaluation.setModality(this.getModality(cellStoreVector));
+			evaluation.setName(this.getName(cellStoreVector));
+			evaluation.setPermanentTeachers(this.getPermanentTeachers(cellStoreVector));
+			evaluation.setPublishedWorks(this.getPublishedWorks(cellStoreVector, this.year));
+			evaluation.setTheses(this.getTheses(cellStoreVector));
+			evaluation.setTrienalEvaluation(this.getTrienalEvaluation(cellStoreVector));
+			evaluation.setYear(this.year);
+
+			rowData.add(evaluation);
+		}
+
+		return rowData;
+	}
+
 	private String getAcronym(Vector cellStoreVector) {
 		return this.getValueFromCell(cellStoreVector, 2);
 	}
@@ -128,27 +146,74 @@ public class ExcelFileReader {
 	}
 
 	private Integer getMastersDegreeYear(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 5));
+		String data = this.getValueFromCell(cellStoreVector, 5);
+		Double value = Double.parseDouble((data.length() > 0 ? data : "0"));
+		return value.intValue();
 	}
 
 	private Integer getDoctorateYear(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 6));
+		String data = this.getValueFromCell(cellStoreVector, 6);
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
+		return value.intValue();
 	}
 
 	private Integer getTrienalEvaluation(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 7));
+		String data = this.getValueFromCell(cellStoreVector, 7);
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
+		return value.intValue();
 	}
 
 	private Integer getPermanentTeachers(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 8));
+		String data = this.getValueFromCell(cellStoreVector, 8);
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
+		return value.intValue();
 	}
 
 	private Integer getTheses(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 9));
+		String data = this.getValueFromCell(cellStoreVector, 9);
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
+		return value.intValue();
 	}
 
 	private Integer getDissertations(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 10));
+		String data = this.getValueFromCell(cellStoreVector, 10);
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
+		return value.intValue();
 	}
 
 	private Integer getArticlesPublishedJournals(Vector cellStoreVector) {
@@ -160,38 +225,104 @@ public class ExcelFileReader {
 	}
 
 	private Integer getInetegralText(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 30));
+		String data = this.getValueFromCell(cellStoreVector, 30);
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
+		return value.intValue();
 	}
 
 	public Integer getChapters(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 31));
+		String data = this.getValueFromCell(cellStoreVector, 31);
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
+		return value.intValue();
 	}
 
 	public Integer getCollections(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 32));
+		String data = this.getValueFromCell(cellStoreVector, 32);
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
+		return value.intValue();
 	}
 
 	public Integer getEntries(Vector cellStoreVector) {
-		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 33));
+		String data = this.getValueFromCell(cellStoreVector, 33);
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
+		return value.intValue();
 	}
 
 	public Integer getPublishedWorks(Vector cellStoreVector, int year) {
-		if( year == 2010 )
-			return Integer.parseInt(this.getValueFromCell(cellStoreVector, 21));
-		else {
+		String data;
+		Double value;
+
+		if( year == 2010 ) {
+			data = this.getValueFromCell(cellStoreVector, 21);
+
+			try {
+				value = Double.parseDouble(data);
+			} catch(Exception e) {
+				value = 0.0;
+			}
+
+			return value.intValue();
+		} else {
 			Double sumFields = 0.0;
 
-			for(int i = 0; i <= 8; i++)
-				sumFields += Double.parseDouble(this.getValueFromCell(cellStoreVector, 21+i));
+			for(int i = 0; i <= 8; i++) {
+				data = this.getValueFromCell(cellStoreVector, 21+i);
 
-			return Integer.parseInt(sumFields.toString());
+				try {
+					value = Double.parseDouble(data);
+				} catch(Exception e) {
+					value = 0.0;
+				}
+
+				sumFields += value;
+			}
+
+			return sumFields.intValue();
 		}
 	}
 
 	public Integer getArtisticProduction(Vector cellStoreVector, int year) {
-		if( year == 2010 )
-			return Integer.parseInt(this.getValueFromCell(cellStoreVector, 34));
-		else
+		Double value;
+
+		if( year == 2010 ) {
+			String data = this.getValueFromCell(cellStoreVector, 34);
+
+			try {
+				value = Double.parseDouble(data);
+			} catch(Exception e) {
+				value = 0.0;
+			}
+
+			return value.intValue();
+		} else
 			return 0;
 	}
 
