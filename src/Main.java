@@ -9,7 +9,7 @@ public class Main {
 		ArrayList<String> files = ListFiles.getAllXlsFilesFromFolder("./src/xls/2007/");
 
 		//for(String file : files) {
-			ExcelFileReader xlsReader = new ExcelFileReader(files.get(0));
+			ExcelFileReader xlsReader = new ExcelFileReader(files.get(0), 2007);
 
 			xlsReader.printCellDataToConsole();
 		//}

@@ -14,12 +14,14 @@ import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 public class ExcelFileReader {
 	private Vector dataHolder;
 	private String fileName;
+	private int year;
 
 	public ExcelFileReader() {
 	}
 
-	public ExcelFileReader(String fileName) {
+	public ExcelFileReader(String fileName, int year) {
 		this.fileName = fileName;
+		this.year = year;
 	}
 
 	public void setFileName(String fileName) {
@@ -28,6 +30,14 @@ public class ExcelFileReader {
 
 	public String getFileName() {
 		return this.fileName;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public int getYear() {
+		return this.year;
 	}
 
 	private Vector readExcelFile() throws IOException {
@@ -74,7 +84,7 @@ public class ExcelFileReader {
 			if( this.isRowEmpty(cellStoreVector) )
 				break;
 
-			System.out.println(this.getName(cellStoreVector));
+			System.out.println(this.getPublishedWorks(cellStoreVector, this.year));
 			/*for (int j=0; j < cellStoreVector.size();j++) {
 				HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(j);
 				String stringCellValue = myCell.toString();
@@ -110,6 +120,78 @@ public class ExcelFileReader {
 
 	private String getName(Vector cellStoreVector) {
 		return this.getValueFromCell(cellStoreVector, 3);
+	}
+
+	private String getModality(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 4);
+	}
+
+	private String getMastersDegreeYear(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 5);
+	}
+
+	private String getDoctorateYear(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 6);
+	}
+
+	private String getTrienalEvaluation(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 7);
+	}
+
+	private String getPermanentTeachers(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 8);
+	}
+
+	private String getTheses(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 9);
+	}
+
+	private String getDissertations(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 10);
+	}
+
+	private String getArticlesPublishedJournals(Vector cellStoreVector) {
+		return "0";
+	}
+
+	private String getArticlesPublishedConferenceProceedings(Vector cellStoreVector) {
+		return "0";
+	}
+
+	private String getInetegralText(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 30);
+	}
+
+	public String getChapters(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 31);
+	}
+
+	public String getCollections(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 32);
+	}
+
+	public String getEntries(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 33);
+	}
+
+	public String getPublishedWorks(Vector cellStoreVector, int year) {
+		if( year == 2010 )
+			return this.getValueFromCell(cellStoreVector, 21);
+		else {
+			Double sumFields = 0.0;
+
+			for(int i = 0; i <= 8; i++)
+				sumFields += Double.parseDouble(this.getValueFromCell(cellStoreVector, 21+i));
+
+			return Double.toString(sumFields);
+		}
+	}
+
+	public String getArtisticProduction(Vector cellStoreVector, int year) {
+		if( year == 2010 )
+			return this.getValueFromCell(cellStoreVector, 34);
+		else
+			return "0";
 	}
 
 	private boolean isRowEmpty(Vector cellStoreVector) {
