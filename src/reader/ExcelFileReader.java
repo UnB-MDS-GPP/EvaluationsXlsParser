@@ -66,13 +66,16 @@ public class ExcelFileReader {
 	}
 
 	public void printCellDataToConsole() throws IOException {
-		this.dataHolder = this.readExcelFile();
-		System.out.println(this.getAreaReview());
+		int startRow = 11;
+		this.dataHolder = this.readExcelFile(); // xls file rows
 
-		/*for (int i=0;i<this.dataHolder.size();i++) {
-			Vector cellStoreVector = (Vector)this.dataHolder.elementAt(i);
+		for (int i=startRow; i < this.dataHolder.size();i++) {
+			Vector cellStoreVector = (Vector)this.dataHolder.elementAt(i); // single row
+			if( this.isRowEmpty(cellStoreVector) )
+				break;
 
-			for (int j=0; j < cellStoreVector.size();j++) {
+			System.out.println(this.getAcronym(cellStoreVector));
+			/*for (int j=0; j < cellStoreVector.size();j++) {
 				HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(j);
 				String stringCellValue = myCell.toString();
 
@@ -80,8 +83,8 @@ public class ExcelFileReader {
 				System.out.print(stringCellValue+"\t");
 			}
 
-			System.out.println();
-		}*/
+			System.out.println();*/
+		}
 	}
 
 	public String getAreaReview() {
@@ -99,5 +102,28 @@ public class ExcelFileReader {
 		area = area.substring(index, area.length());
 
 		return area;
+	}
+
+	public String getAcronym(Vector cellStoreVector) {
+		String acronym = "";
+		HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(2);
+		acronym = myCell.toString();
+
+		return acronym;
+	}
+
+	private boolean isRowEmpty(Vector cellStoreVector) {
+		boolean empty = true;
+
+		for(int i = 0; i < cellStoreVector.size(); i++) {
+			HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(i);
+
+			if( myCell.toString().replaceAll("\\s+","").length() > 0 ) {
+				empty = false;
+				break;
+			}
+		}
+
+	    return empty;
 	}
 }
