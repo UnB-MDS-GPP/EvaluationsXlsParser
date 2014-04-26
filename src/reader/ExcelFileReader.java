@@ -52,7 +52,7 @@ public class ExcelFileReader {
 		while(rowIter.hasNext()) {
 			HSSFRow myRow = (HSSFRow) rowIter.next();
 			Iterator cellIter = myRow.cellIterator();
-			Vector cellStoreVector=new Vector();
+			Vector cellStoreVector = new Vector();
 
 			while(cellIter.hasNext()) {
 				HSSFCell myCell = (HSSFCell) cellIter.next();
