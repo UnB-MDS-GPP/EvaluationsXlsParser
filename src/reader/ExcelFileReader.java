@@ -74,7 +74,7 @@ public class ExcelFileReader {
 			if( this.isRowEmpty(cellStoreVector) )
 				break;
 
-			System.out.println(this.getAcronym(cellStoreVector));
+			System.out.println(this.getName(cellStoreVector));
 			/*for (int j=0; j < cellStoreVector.size();j++) {
 				HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(j);
 				String stringCellValue = myCell.toString();
@@ -104,12 +104,12 @@ public class ExcelFileReader {
 		return area;
 	}
 
-	public String getAcronym(Vector cellStoreVector) {
-		String acronym = "";
-		HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(2);
-		acronym = myCell.toString();
+	private String getAcronym(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 2);
+	}
 
-		return acronym;
+	private String getName(Vector cellStoreVector) {
+		return this.getValueFromCell(cellStoreVector, 3);
 	}
 
 	private boolean isRowEmpty(Vector cellStoreVector) {
@@ -125,5 +125,13 @@ public class ExcelFileReader {
 		}
 
 	    return empty;
+	}
+
+	private String getValueFromCell(Vector cellStoreVector, int index) {
+		String value = "";
+		HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(index);
+		value = myCell.toString();
+
+		return value;
 	}
 }
