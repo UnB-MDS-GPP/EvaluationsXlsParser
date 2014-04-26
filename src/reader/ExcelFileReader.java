@@ -12,31 +12,26 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 
 public class ExcelFileReader {
-	private String fileName;
 
-	public ExcelFileReader(String fileName) {
-		this.fileName = fileName;
-	}
-
-	public Vector readExcelFile() throws IOException {
+	public static Vector readExcelFile(String fileName) throws IOException {
 		// A vector os cells
 		Vector cellVectorHolder = new Vector();
 
 		// Creating Input Stream
-		FileInputStream myInput = new FileInputStream(this.fileName);
-		
+		FileInputStream myInput = new FileInputStream(fileName);
+
 		// Create a POIFSFileSystem object
 		POIFSFileSystem myFileSystem = new POIFSFileSystem(myInput);
-		
+
 		// Create a workbook using the File System
 		HSSFWorkbook myWorkBook = new HSSFWorkbook(myFileSystem);
-		
+
 		// Get the first sheet from workbook
 		HSSFSheet mySheet = myWorkBook.getSheetAt(0);
-		
+
 		// Iterator to iterate through the cells
 		Iterator rowIter = mySheet.rowIterator();
-		
+
 		while(rowIter.hasNext()){
             HSSFRow myRow = (HSSFRow) rowIter.next();
             Iterator cellIter = myRow.cellIterator();
