@@ -67,18 +67,37 @@ public class ExcelFileReader {
 
 	public void printCellDataToConsole() throws IOException {
 		this.dataHolder = this.readExcelFile();
+		System.out.println(this.getAreaReview());
 
-		for (int i=0;i<this.dataHolder.size();i++) {
-			Vector cellStoreVector=(Vector)this.dataHolder.elementAt(i);
+		/*for (int i=0;i<this.dataHolder.size();i++) {
+			Vector cellStoreVector = (Vector)this.dataHolder.elementAt(i);
 
 			for (int j=0; j < cellStoreVector.size();j++) {
 				HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(j);
 				String stringCellValue = myCell.toString();
 
+				//System.out.println("I: "+i+"\nJ: "+j+"\n");
 				System.out.print(stringCellValue+"\t");
 			}
 
 			System.out.println();
+		}*/
+	}
+
+	public String getAreaReview() {
+		Vector cellStoreVector = (Vector)this.dataHolder.elementAt(5);
+		String area = "";
+
+		for(int i = 0; i < cellStoreVector.size(); i++) {
+			HSSFCell myCell = (HSSFCell)cellStoreVector.elementAt(i);
+
+			if( myCell.toString().length() > 0 )
+				area += myCell.toString();
 		}
+
+		int index = area.indexOf(":") + 1;
+		area = area.substring(index, area.length());
+
+		return area;
 	}
 }

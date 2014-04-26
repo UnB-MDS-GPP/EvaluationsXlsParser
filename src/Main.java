@@ -1,14 +1,17 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 import reader.*;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		String file = ListFiles.getAllXlsFilesFromFolder("./src/xls/2007/").get(0);
+		ArrayList<String> files = ListFiles.getAllXlsFilesFromFolder("./src/xls/2007/");
 
-		ExcelFileReader xlsReader = new ExcelFileReader(file);
+		for(String file : files) {
+			ExcelFileReader xlsReader = new ExcelFileReader(file);
 
-		xlsReader.printCellDataToConsole();
+			xlsReader.printCellDataToConsole();
+		}
 	}
 }
