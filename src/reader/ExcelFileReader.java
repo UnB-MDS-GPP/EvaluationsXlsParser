@@ -2,6 +2,7 @@ package reader;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -126,72 +127,72 @@ public class ExcelFileReader {
 		return this.getValueFromCell(cellStoreVector, 4);
 	}
 
-	private String getMastersDegreeYear(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 5);
+	private Integer getMastersDegreeYear(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 5));
 	}
 
-	private String getDoctorateYear(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 6);
+	private Integer getDoctorateYear(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 6));
 	}
 
-	private String getTrienalEvaluation(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 7);
+	private Integer getTrienalEvaluation(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 7));
 	}
 
-	private String getPermanentTeachers(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 8);
+	private Integer getPermanentTeachers(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 8));
 	}
 
-	private String getTheses(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 9);
+	private Integer getTheses(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 9));
 	}
 
-	private String getDissertations(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 10);
+	private Integer getDissertations(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 10));
 	}
 
-	private String getArticlesPublishedJournals(Vector cellStoreVector) {
-		return "0";
+	private Integer getArticlesPublishedJournals(Vector cellStoreVector) {
+		return 0;
 	}
 
-	private String getArticlesPublishedConferenceProceedings(Vector cellStoreVector) {
-		return "0";
+	private Integer getArticlesPublishedConferenceProceedings(Vector cellStoreVector) {
+		return 0;
 	}
 
-	private String getInetegralText(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 30);
+	private Integer getInetegralText(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 30));
 	}
 
-	public String getChapters(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 31);
+	public Integer getChapters(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 31));
 	}
 
-	public String getCollections(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 32);
+	public Integer getCollections(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 32));
 	}
 
-	public String getEntries(Vector cellStoreVector) {
-		return this.getValueFromCell(cellStoreVector, 33);
+	public Integer getEntries(Vector cellStoreVector) {
+		return Integer.parseInt(this.getValueFromCell(cellStoreVector, 33));
 	}
 
-	public String getPublishedWorks(Vector cellStoreVector, int year) {
+	public Integer getPublishedWorks(Vector cellStoreVector, int year) {
 		if( year == 2010 )
-			return this.getValueFromCell(cellStoreVector, 21);
+			return Integer.parseInt(this.getValueFromCell(cellStoreVector, 21));
 		else {
 			Double sumFields = 0.0;
 
 			for(int i = 0; i <= 8; i++)
 				sumFields += Double.parseDouble(this.getValueFromCell(cellStoreVector, 21+i));
 
-			return Double.toString(sumFields);
+			return Integer.parseInt(sumFields.toString());
 		}
 	}
 
-	public String getArtisticProduction(Vector cellStoreVector, int year) {
+	public Integer getArtisticProduction(Vector cellStoreVector, int year) {
 		if( year == 2010 )
-			return this.getValueFromCell(cellStoreVector, 34);
+			return Integer.parseInt(this.getValueFromCell(cellStoreVector, 34));
 		else
-			return "0";
+			return 0;
 	}
 
 	private boolean isRowEmpty(Vector cellStoreVector) {
