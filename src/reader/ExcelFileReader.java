@@ -147,7 +147,14 @@ public class ExcelFileReader {
 
 	private Integer getMastersDegreeYear(Vector cellStoreVector) {
 		String data = this.getValueFromCell(cellStoreVector, 5);
-		Double value = Double.parseDouble((data.length() > 0 ? data : "0"));
+		Double value;
+
+		try {
+			value = Double.parseDouble(data);
+		} catch(Exception e) {
+			value = 0.0;
+		}
+
 		return value.intValue();
 	}
 
