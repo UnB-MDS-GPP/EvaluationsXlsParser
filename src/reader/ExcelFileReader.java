@@ -244,7 +244,7 @@ public class ExcelFileReader {
 		return value.intValue();
 	}
 
-	public Integer getChapters(Vector cellStoreVector) {
+	private Integer getChapters(Vector cellStoreVector) {
 		String data = this.getValueFromCell(cellStoreVector, 31);
 		Double value;
 
@@ -257,7 +257,7 @@ public class ExcelFileReader {
 		return value.intValue();
 	}
 
-	public Integer getCollections(Vector cellStoreVector) {
+	private Integer getCollections(Vector cellStoreVector) {
 		String data = this.getValueFromCell(cellStoreVector, 32);
 		Double value;
 
@@ -270,7 +270,7 @@ public class ExcelFileReader {
 		return value.intValue();
 	}
 
-	public Integer getEntries(Vector cellStoreVector) {
+	private Integer getEntries(Vector cellStoreVector) {
 		String data = this.getValueFromCell(cellStoreVector, 33);
 		Double value;
 
@@ -283,7 +283,7 @@ public class ExcelFileReader {
 		return value.intValue();
 	}
 
-	public Integer getPublishedWorks(Vector cellStoreVector, int year) {
+	private Integer getPublishedWorks(Vector cellStoreVector, int year) {
 		String data;
 		Double value;
 
@@ -316,7 +316,7 @@ public class ExcelFileReader {
 		}
 	}
 
-	public Integer getArtisticProduction(Vector cellStoreVector, int year) {
+	private Integer getArtisticProduction(Vector cellStoreVector, int year) {
 		Double value;
 
 		if( year == 2010 ) {
