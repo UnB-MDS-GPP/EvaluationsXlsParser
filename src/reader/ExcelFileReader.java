@@ -111,7 +111,7 @@ public class ExcelFileReader {
 			evaluation.setAcronym(this.getAcronym(cellStoreVector));
 			evaluation.setArticlesPublishedConferenceProceedings(this.getArticlesPublishedConferenceProceedings(cellStoreVector));
 			evaluation.setArticlesPublishedJournals(this.getArticlesPublishedJournals(cellStoreVector));
-			evaluation.setArtisticProduction(this.getArtisticProduction(cellStoreVector, this.year));
+			evaluation.setArtisticProduction(this.getArtisticProduction(cellStoreVector));
 			evaluation.setChapters(this.getChapters(cellStoreVector));
 			evaluation.setCollections(this.getCollections(cellStoreVector));
 			evaluation.setDissertations(this.getDissertations(cellStoreVector));
@@ -122,7 +122,7 @@ public class ExcelFileReader {
 			evaluation.setModality(this.getModality(cellStoreVector));
 			evaluation.setName(this.getName(cellStoreVector));
 			evaluation.setPermanentTeachers(this.getPermanentTeachers(cellStoreVector));
-			evaluation.setPublishedWorks(this.getPublishedWorks(cellStoreVector, this.year));
+			evaluation.setPublishedWorks(this.getPublishedWorks(cellStoreVector));
 			evaluation.setTheses(this.getTheses(cellStoreVector));
 			evaluation.setTrienalEvaluation(this.getTrienalEvaluation(cellStoreVector));
 			evaluation.setYear(this.year);
@@ -232,8 +232,13 @@ public class ExcelFileReader {
 	}
 
 	private Integer getInetegralText(Vector cellStoreVector) {
-		String data = this.getValueFromCell(cellStoreVector, 30);
+		String data;
 		Double value;
+
+		if( this.year == 2010 )
+			data = this.getValueFromCell(cellStoreVector, 22);
+		else
+			data = this.getValueFromCell(cellStoreVector, 30);
 
 		try {
 			value = Double.parseDouble(data);
@@ -245,8 +250,13 @@ public class ExcelFileReader {
 	}
 
 	private Integer getChapters(Vector cellStoreVector) {
-		String data = this.getValueFromCell(cellStoreVector, 31);
+		String data;
 		Double value;
+
+		if( this.year == 2010 )
+			data = this.getValueFromCell(cellStoreVector, 23);
+		else
+			data = this.getValueFromCell(cellStoreVector, 31);
 
 		try {
 			value = Double.parseDouble(data);
@@ -258,8 +268,13 @@ public class ExcelFileReader {
 	}
 
 	private Integer getCollections(Vector cellStoreVector) {
-		String data = this.getValueFromCell(cellStoreVector, 32);
+		String data;
 		Double value;
+
+		if( this.year == 2010 )
+			data = this.getValueFromCell(cellStoreVector, 24);
+		else
+			data = this.getValueFromCell(cellStoreVector, 32);
 
 		try {
 			value = Double.parseDouble(data);
@@ -271,8 +286,13 @@ public class ExcelFileReader {
 	}
 
 	private Integer getEntries(Vector cellStoreVector) {
-		String data = this.getValueFromCell(cellStoreVector, 33);
+		String data;
 		Double value;
+
+		if( this.year == 2010 )
+			data = this.getValueFromCell(cellStoreVector, 25);
+		else
+			data = this.getValueFromCell(cellStoreVector, 33);
 
 		try {
 			value = Double.parseDouble(data);
@@ -283,11 +303,11 @@ public class ExcelFileReader {
 		return value.intValue();
 	}
 
-	private Integer getPublishedWorks(Vector cellStoreVector, int year) {
+	private Integer getPublishedWorks(Vector cellStoreVector) {
 		String data;
 		Double value;
 
-		if( year == 2010 ) {
+		if( this.year == 2010 ) {
 			data = this.getValueFromCell(cellStoreVector, 21);
 
 			try {
@@ -316,11 +336,11 @@ public class ExcelFileReader {
 		}
 	}
 
-	private Integer getArtisticProduction(Vector cellStoreVector, int year) {
+	private Integer getArtisticProduction(Vector cellStoreVector) {
 		Double value;
 
-		if( year == 2010 ) {
-			String data = this.getValueFromCell(cellStoreVector, 34);
+		if( this.year == 2010 ) {
+			String data = this.getValueFromCell(cellStoreVector, 26);
 
 			try {
 				value = Double.parseDouble(data);
@@ -334,6 +354,9 @@ public class ExcelFileReader {
 	}
 
 	private boolean isRowEmpty(Vector cellStoreVector) {
+		if( cellStoreVector.size() < 25 )
+			return true;
+
 		boolean empty = true;
 
 		for(int i = 0; i < cellStoreVector.size(); i++) {
