@@ -223,7 +223,22 @@ public class ExcelFileReader {
 	}
 
 	private Integer getPublishedJournals(Vector cellStoreVector) {
-		return 0;
+		Double sumFields = 0.0;
+		String data;
+		Double value = 0.0;
+		
+		for(int i = 0; i <= 8; i++) {
+			data = this.getValueFromCell(cellStoreVector, 12+i);
+
+			try {
+				value = Double.parseDouble(data);
+			} catch(Exception e) {
+				value = 0.0;
+			}
+
+			sumFields += value;
+		}
+		return value.intValue();
 	}
 
 	private Integer getPublishedConferenceProceedings(Vector cellStoreVector) {
