@@ -7,7 +7,7 @@ public class XlsRowFieldsStorage {
 	private String evaluationModality; // E12 --> Evaluation field
 	private Integer evaluationMastersDegreeYear; // F12 --> Evaluation field
 	private Integer evaluationDoctorateYear; // G12 --> Evaluation field
-	private Integer evaluationTrienalEvaluation; // H12 --> Evaluation field
+	private Integer trienalEvaluation; // H12 --> Evaluation field
 	private Integer evaluationPermanentTeachers; // I12 --> Evaluation field
 	private Integer evaluationTheses; // J12 --> Evaluation field
 	private Integer evaluationDissertations; // K12 --> Evaluation field
@@ -19,66 +19,66 @@ public class XlsRowFieldsStorage {
 	private Integer bookEntries; // AH12 --> Book field
 	private Integer evaluationPublishedWorks; // 2007: Sum of V12, W12, X12, Y12, X12, AA12, AB12, AC12, AD12 --> Evaluation field
 	private Integer evaluationArtisticProduction; // 2010: AI12 --> Evaluation field
-
-	public Integer getYear() {
+	
+	public Integer getEvaluationYear() {
 		return evaluationYear;
 	}
-	public void setYear(Integer year) {
-		this.evaluationYear = year;
+	public void setEvaluationYear(Integer evaluationYear) {
+		this.evaluationYear = evaluationYear;
 	}
-	public String getAcronym() {
+	public String getIntitutionAcronym() {
 		return intitutionAcronym;
 	}
-	public void setAcronym(String acronym) {
-		this.intitutionAcronym = acronym;
+	public void setIntitutionAcronym(String intitutionAcronym) {
+		this.intitutionAcronym = intitutionAcronym;
 	}
-	public String getName() {
+	public String getCourseName() {
 		return courseName;
 	}
-	public void setName(String name) {
-		this.courseName = name;
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
-	public String getModality() {
+	public String getEvaluationModality() {
 		return evaluationModality;
 	}
-	public void setModality(String modality) {
-		this.evaluationModality = modality;
+	public void setEvaluationModality(String evaluationModality) {
+		this.evaluationModality = evaluationModality;
 	}
-	public Integer getMastersDegreeYear() {
+	public Integer getEvaluationMastersDegreeYear() {
 		return evaluationMastersDegreeYear;
 	}
-	public void setMastersDegreeYear(Integer mastersDegreeYear) {
-		this.evaluationMastersDegreeYear = mastersDegreeYear;
+	public void setEvaluationMastersDegreeYear(Integer evaluationMastersDegreeYear) {
+		this.evaluationMastersDegreeYear = evaluationMastersDegreeYear;
 	}
-	public Integer getDoctorateYear() {
+	public Integer getEvaluationDoctorateYear() {
 		return evaluationDoctorateYear;
 	}
-	public void setDoctorateYear(Integer doctorateYear) {
-		this.evaluationDoctorateYear = doctorateYear;
+	public void setEvaluationDoctorateYear(Integer evaluationDoctorateYear) {
+		this.evaluationDoctorateYear = evaluationDoctorateYear;
 	}
 	public Integer getTrienalEvaluation() {
-		return evaluationTrienalEvaluation;
+		return trienalEvaluation;
 	}
 	public void setTrienalEvaluation(Integer trienalEvaluation) {
-		this.evaluationTrienalEvaluation = trienalEvaluation;
+		this.trienalEvaluation = trienalEvaluation;
 	}
-	public Integer getPermanentTeachers() {
+	public Integer getEvaluationPermanentTeachers() {
 		return evaluationPermanentTeachers;
 	}
-	public void setPermanentTeachers(Integer permanentTeachers) {
-		this.evaluationPermanentTeachers = permanentTeachers;
+	public void setEvaluationPermanentTeachers(Integer evaluationPermanentTeachers) {
+		this.evaluationPermanentTeachers = evaluationPermanentTeachers;
 	}
-	public Integer getTheses() {
+	public Integer getEvaluationTheses() {
 		return evaluationTheses;
 	}
-	public void setTheses(Integer theses) {
-		this.evaluationTheses = theses;
+	public void setEvaluationTheses(Integer evaluationTheses) {
+		this.evaluationTheses = evaluationTheses;
 	}
-	public Integer getDissertations() {
+	public Integer getEvaluationDissertations() {
 		return evaluationDissertations;
 	}
-	public void setDissertations(Integer dissertations) {
-		this.evaluationDissertations = dissertations;
+	public void setEvaluationDissertations(Integer evaluationDissertations) {
+		this.evaluationDissertations = evaluationDissertations;
 	}
 	public Integer getArticlesPublishedJournals() {
 		return articlesPublishedJournals;
@@ -93,40 +93,42 @@ public class XlsRowFieldsStorage {
 			Integer articlesPublishedConferenceProceedings) {
 		this.articlesPublishedConferenceProceedings = articlesPublishedConferenceProceedings;
 	}
-	public Integer getInetegralText() {
+	public Integer getBookInetegralText() {
 		return bookInetegralText;
 	}
-	public void setInetegralText(Integer inetegralText) {
-		this.bookInetegralText = inetegralText;
+	public void setBookInetegralText(Integer bookInetegralText) {
+		this.bookInetegralText = bookInetegralText;
 	}
-	public Integer getChapters() {
+	public Integer getBookChapters() {
 		return bookChapters;
 	}
-	public void setChapters(Integer chapters) {
-		this.bookChapters = chapters;
+	public void setBookChapters(Integer bookChapters) {
+		this.bookChapters = bookChapters;
 	}
-	public Integer getCollections() {
+	public Integer getBookCollections() {
 		return bookCollections;
 	}
-	public void setCollections(Integer collections) {
-		this.bookCollections = collections;
+	public void setBookCollections(Integer bookCollections) {
+		this.bookCollections = bookCollections;
 	}
-	public Integer getEntries() {
+	public Integer getBookEntries() {
 		return bookEntries;
 	}
-	public void setEntries(Integer entries) {
-		this.bookEntries = entries;
+	public void setBookEntries(Integer bookEntries) {
+		this.bookEntries = bookEntries;
 	}
-	public Integer getPublishedWorks() {
+	public Integer getEvaluationPublishedWorks() {
 		return evaluationPublishedWorks;
 	}
-	public void setPublishedWorks(Integer publishedWorks) {
-		this.evaluationPublishedWorks = publishedWorks;
+	public void setEvaluationPublishedWorks(Integer evaluationPublishedWorks) {
+		this.evaluationPublishedWorks = evaluationPublishedWorks;
 	}
-	public Integer getArtisticProduction() {
+	public Integer getEvaluationArtisticProduction() {
 		return evaluationArtisticProduction;
 	}
-	public void setArtisticProduction(Integer artisticProduction) {
-		this.evaluationArtisticProduction = artisticProduction;
+	public void setEvaluationArtisticProduction(Integer evaluationArtisticProduction) {
+		this.evaluationArtisticProduction = evaluationArtisticProduction;
 	}
+
+	
 }
