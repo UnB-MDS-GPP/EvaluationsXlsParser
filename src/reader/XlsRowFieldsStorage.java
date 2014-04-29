@@ -1,84 +1,84 @@
 package reader;
 
 public class XlsRowFieldsStorage {
-	private Integer year; // Evaluation file year 2007 or 2010
-	private String acronym; // C12 --> Institution field
-	private String name; // D12 --> Course field
-	private String modality; // E12 --> Evaluation field
-	private Integer mastersDegreeYear; // F12 --> Evaluation field
-	private Integer doctorateYear; // G12 --> Evaluation field
-	private Integer trienalEvaluation; // H12 --> Evaluation field
-	private Integer permanentTeachers; // I12 --> Evaluation field
-	private Integer theses; // J12 --> Evaluation field
-	private Integer dissertations; // K12 --> Evaluation field
+	private Integer evaluationYear; // Evaluation file year 2007 or 2010
+	private String intitutionAcronym; // C12 --> Institution field
+	private String courseName; // D12 --> Course field
+	private String evaluationModality; // E12 --> Evaluation field
+	private Integer evaluationMastersDegreeYear; // F12 --> Evaluation field
+	private Integer evaluationDoctorateYear; // G12 --> Evaluation field
+	private Integer evaluationTrienalEvaluation; // H12 --> Evaluation field
+	private Integer evaluationPermanentTeachers; // I12 --> Evaluation field
+	private Integer evaluationTheses; // J12 --> Evaluation field
+	private Integer evaluationDissertations; // K12 --> Evaluation field
 	private Integer articlesPublishedJournals; // --> Article field 
 	private Integer articlesPublishedConferenceProceedings; // --> Article field
-	private Integer inetegralText; // AE12 --> Book field
-	private Integer chapters; // AF12 --> Book field
-	private Integer collections; // AG12 --> Book field
-	private Integer entries; // AH12 --> Book field
-	private Integer publishedWorks; // 2007: Sum of V12, W12, X12, Y12, X12, AA12, AB12, AC12, AD12 --> Evaluation field
-	private Integer artisticProduction; // 2010: AI12 --> Evaluation field
+	private Integer bookInetegralText; // AE12 --> Book field
+	private Integer bookChapters; // AF12 --> Book field
+	private Integer bookCollections; // AG12 --> Book field
+	private Integer bookEntries; // AH12 --> Book field
+	private Integer evaluationPublishedWorks; // 2007: Sum of V12, W12, X12, Y12, X12, AA12, AB12, AC12, AD12 --> Evaluation field
+	private Integer evaluationArtisticProduction; // 2010: AI12 --> Evaluation field
 
 	public Integer getYear() {
-		return year;
+		return evaluationYear;
 	}
 	public void setYear(Integer year) {
-		this.year = year;
+		this.evaluationYear = year;
 	}
 	public String getAcronym() {
-		return acronym;
+		return intitutionAcronym;
 	}
 	public void setAcronym(String acronym) {
-		this.acronym = acronym;
+		this.intitutionAcronym = acronym;
 	}
 	public String getName() {
-		return name;
+		return courseName;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.courseName = name;
 	}
 	public String getModality() {
-		return modality;
+		return evaluationModality;
 	}
 	public void setModality(String modality) {
-		this.modality = modality;
+		this.evaluationModality = modality;
 	}
 	public Integer getMastersDegreeYear() {
-		return mastersDegreeYear;
+		return evaluationMastersDegreeYear;
 	}
 	public void setMastersDegreeYear(Integer mastersDegreeYear) {
-		this.mastersDegreeYear = mastersDegreeYear;
+		this.evaluationMastersDegreeYear = mastersDegreeYear;
 	}
 	public Integer getDoctorateYear() {
-		return doctorateYear;
+		return evaluationDoctorateYear;
 	}
 	public void setDoctorateYear(Integer doctorateYear) {
-		this.doctorateYear = doctorateYear;
+		this.evaluationDoctorateYear = doctorateYear;
 	}
 	public Integer getTrienalEvaluation() {
-		return trienalEvaluation;
+		return evaluationTrienalEvaluation;
 	}
 	public void setTrienalEvaluation(Integer trienalEvaluation) {
-		this.trienalEvaluation = trienalEvaluation;
+		this.evaluationTrienalEvaluation = trienalEvaluation;
 	}
 	public Integer getPermanentTeachers() {
-		return permanentTeachers;
+		return evaluationPermanentTeachers;
 	}
 	public void setPermanentTeachers(Integer permanentTeachers) {
-		this.permanentTeachers = permanentTeachers;
+		this.evaluationPermanentTeachers = permanentTeachers;
 	}
 	public Integer getTheses() {
-		return theses;
+		return evaluationTheses;
 	}
 	public void setTheses(Integer theses) {
-		this.theses = theses;
+		this.evaluationTheses = theses;
 	}
 	public Integer getDissertations() {
-		return dissertations;
+		return evaluationDissertations;
 	}
 	public void setDissertations(Integer dissertations) {
-		this.dissertations = dissertations;
+		this.evaluationDissertations = dissertations;
 	}
 	public Integer getArticlesPublishedJournals() {
 		return articlesPublishedJournals;
@@ -94,39 +94,39 @@ public class XlsRowFieldsStorage {
 		this.articlesPublishedConferenceProceedings = articlesPublishedConferenceProceedings;
 	}
 	public Integer getInetegralText() {
-		return inetegralText;
+		return bookInetegralText;
 	}
 	public void setInetegralText(Integer inetegralText) {
-		this.inetegralText = inetegralText;
+		this.bookInetegralText = inetegralText;
 	}
 	public Integer getChapters() {
-		return chapters;
+		return bookChapters;
 	}
 	public void setChapters(Integer chapters) {
-		this.chapters = chapters;
+		this.bookChapters = chapters;
 	}
 	public Integer getCollections() {
-		return collections;
+		return bookCollections;
 	}
 	public void setCollections(Integer collections) {
-		this.collections = collections;
+		this.bookCollections = collections;
 	}
 	public Integer getEntries() {
-		return entries;
+		return bookEntries;
 	}
 	public void setEntries(Integer entries) {
-		this.entries = entries;
+		this.bookEntries = entries;
 	}
 	public Integer getPublishedWorks() {
-		return publishedWorks;
+		return evaluationPublishedWorks;
 	}
 	public void setPublishedWorks(Integer publishedWorks) {
-		this.publishedWorks = publishedWorks;
+		this.evaluationPublishedWorks = publishedWorks;
 	}
 	public Integer getArtisticProduction() {
-		return artisticProduction;
+		return evaluationArtisticProduction;
 	}
 	public void setArtisticProduction(Integer artisticProduction) {
-		this.artisticProduction = artisticProduction;
+		this.evaluationArtisticProduction = artisticProduction;
 	}
 }
