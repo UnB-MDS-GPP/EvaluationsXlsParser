@@ -1,6 +1,6 @@
 package reader;
 
-public class EvaluationXlsRowFieldsStorage {
+public class XlsRowFieldsStorage {
 	private Integer year; // Evaluation file year 2007 or 2010
 	private String acronym; // C12 --> Institution field
 	private String name; // D12 --> Course field

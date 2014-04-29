@@ -93,9 +93,9 @@ public class ExcelFileReader {
 		return area;
 	}
 
-	public ArrayList<EvaluationXlsRowFieldsStorage> getEvaluationFromXslFile() throws IOException {
-		ArrayList<EvaluationXlsRowFieldsStorage> rowData = new ArrayList<EvaluationXlsRowFieldsStorage>();
-		EvaluationXlsRowFieldsStorage evaluation;
+	public ArrayList<XlsRowFieldsStorage> getEvaluationFromXslFile() throws IOException {
+		ArrayList<XlsRowFieldsStorage> rowData = new ArrayList<XlsRowFieldsStorage>();
+		XlsRowFieldsStorage evaluation;
 
 		int startRow = 11;
 		this.dataHolder = this.readExcelFile(); // xls file rows
@@ -106,7 +106,7 @@ public class ExcelFileReader {
 			if( this.isRowEmpty(cellStoreVector) ) // Do not continue if its the end of the file
 				break;
 
-			evaluation = new EvaluationXlsRowFieldsStorage();
+			evaluation = new XlsRowFieldsStorage();
 
 			evaluation.setAcronym(this.getAcronym(cellStoreVector));
 			evaluation.setArticlesPublishedConferenceProceedings(this.getArticlesPublishedConferenceProceedings(cellStoreVector));

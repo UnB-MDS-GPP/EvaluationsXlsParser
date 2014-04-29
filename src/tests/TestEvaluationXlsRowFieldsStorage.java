@@ -5,14 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import reader.EvaluationXlsRowFieldsStorage;
+import reader.XlsRowFieldsStorage;
 
 public class TestEvaluationXlsRowFieldsStorage {
-	private EvaluationXlsRowFieldsStorage rowFieldStorage;
+	private XlsRowFieldsStorage rowFieldStorage;
 
 	@Before
 	public void setUp() throws Exception {
-		this.rowFieldStorage = new EvaluationXlsRowFieldsStorage();
+		this.rowFieldStorage = new XlsRowFieldsStorage();
 	}
 
 	@Test
