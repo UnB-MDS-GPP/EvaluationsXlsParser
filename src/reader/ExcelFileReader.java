@@ -238,7 +238,7 @@ public class ExcelFileReader {
 
 			sumFields += value;
 		}
-		return value.intValue();
+		return sumFields.intValue();
 	}
 
 	private Integer getPublishedConferenceProceedings(Vector cellStoreVector) {
