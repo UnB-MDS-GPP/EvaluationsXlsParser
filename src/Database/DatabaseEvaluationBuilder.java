@@ -23,7 +23,7 @@ public class DatabaseEvaluationBuilder {
 			.getAllXlsFilesFromFolder("./src/xls/2007/");
 	ArrayList<XlsRowFieldsStorage> xlsRowData;
 
-	public void getListXlsRowFieldsStorage(int ano) throws IOException {
+	public void createListXlsRowFieldsStorage(int ano) throws IOException {
 
 		if (ano == 2007) {
 			try {
