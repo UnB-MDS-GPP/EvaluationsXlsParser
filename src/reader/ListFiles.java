@@ -9,7 +9,13 @@ public class ListFiles {
 		ArrayList<String> filesList = new ArrayList<String>();
 
 		String files;
-		File folder = new File(path);
+		File folder = null;
+		try{
+			folder = new File(path);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		if(folder.listFiles() != null){
 		File[] listOfFiles = folder.listFiles();
 
 		for (int i = 0; i < listOfFiles.length; i++) {
@@ -21,7 +27,8 @@ public class ListFiles {
 				}
 			}
 		}
-
+		
 		return filesList;
+		} else return null;
 	}
 }
