@@ -1,4 +1,4 @@
-import java.io.IOException;
+/*import java.io.IOException;
 import java.util.ArrayList;
 
 import libraries.DataBaseStructures;
@@ -61,5 +61,5 @@ public class Main {
 			System.out.println("Nao pode deletar o banco");
 			e.printStackTrace();
 		}*/
-	}
-}
+	//}
+//}

@@ -31,11 +31,7 @@ public class TestBuildEvaluation {
 		outro.setAcronym("acronym");
 		outro.setName("Qualquer coisa");
 		BuildEvaluation bEvaluation = new BuildEvaluation(outro);
-		bEvaluation.saveToDatabase();
-		outro = new XlsRowFieldsStorage();
-		outro.setYear(2007);
-		outro.setAcronym("acronym");
-		outro.setName("Qualquer coisa");
+		
 		
 	}
 	@Test

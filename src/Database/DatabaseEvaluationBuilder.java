@@ -3,12 +3,10 @@ package Database;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
-
 import libraries.DataBaseStructures;
-import reader.*;
-import sun.org.mozilla.javascript.internal.ast.IfStatement;
+import reader.ExcelFileReader;
+import reader.ListFiles;
+import reader.XlsRowFieldsStorage;
 
 public class DatabaseEvaluationBuilder {
 
@@ -27,11 +25,10 @@ public class DatabaseEvaluationBuilder {
 
 			files = ListFiles
 					.getAllXlsFilesFromFolder("./src/xls/" + ano + "/");
-		} else {files = new ArrayList<String>();
+		} else {
+			files = new ArrayList<String>();
 		}
-			if (files.size() != 0) {
-
-			// if (ano == 2007) {
+		if (files.size() != 0) {
 			try {
 				dsStructures = new DataBaseStructures();
 				dsStructures.initDB();
@@ -75,34 +72,6 @@ public class DatabaseEvaluationBuilder {
 					}
 				}
 			}
-			/*
-			 * } else if (ano == 2010) { try { dsStructures = new
-			 * DataBaseStructures(); dsStructures.initDB(); } catch (Exception
-			 * e) { System.out.println("Nao pode criar o banco");
-			 * e.printStackTrace(); } files =
-			 * ListFiles.getAllXlsFilesFromFolder("./src/xls/2010/");
-			 * 
-			 * System.out.println("\t---=== 2010 ===---");
-			 * System.out.println("Total de arquivos de 2010: " + files.size() +
-			 * "\n"); for (i = 0; i < files.size(); i++) {
-			 * System.out.println("Salvando os dados do arquivo '" +
-			 * files.get(i) + "' no banco."); ExcelFileReader xlsReader = new
-			 * ExcelFileReader(files.get(i), 2010);
-			 * 
-			 * xlsRowData = xlsReader.getEvaluationFromXslFile();
-			 * System.out.println("Total de linhas do arquivo: " +
-			 * xlsRowData.size());
-			 * 
-			 * for (j = 0; j < xlsRowData.size(); j++) { BuildEvaluation buildE
-			 * = new BuildEvaluation( xlsRowData.get(j));
-			 * 
-			 * try { buildE.saveToDatabase();
-			 * System.out.println("Foi salvo no banco a linha " + (j + 1) +
-			 * "."); } catch (Exception e) { System.out
-			 * .println("Nao pode salvar no banco os dados da linha " + (j + 1)
-			 * + " do arquivo '" + files.get(i) + "'"); e.printStackTrace();
-			 * break; } } }
-			 */
 			return true;
 		} else {
 			System.out.println("Ano não armazenado");

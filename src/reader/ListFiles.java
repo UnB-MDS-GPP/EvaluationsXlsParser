@@ -5,6 +5,9 @@ import java.util.ArrayList;
 
 public class ListFiles {
 
+	public ListFiles(){
+		
+	}
 	public static ArrayList<String> getAllXlsFilesFromFolder(String path) {
 		ArrayList<String> filesList = new ArrayList<String>();
 
