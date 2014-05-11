@@ -4,5 +4,5 @@ bin/*
 *.ear
 .classpath
 /bin
+*.db
 *#
-

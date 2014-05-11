@@ -1,6 +1,6 @@
 package reader;
 
-public class EvaluationXlsRowFieldsStorage {
+public class XlsRowFieldsStorage {
 	private Integer year; // Evaluation file year 2007 or 2010
 	private String acronym; // C12 --> Institution field
 	private String name; // D12 --> Course field
@@ -11,15 +11,13 @@ public class EvaluationXlsRowFieldsStorage {
 	private Integer permanentTeachers; // I12 --> Evaluation field
 	private Integer theses; // J12 --> Evaluation field
 	private Integer dissertations; // K12 --> Evaluation field
-	private Integer articlesPublishedJournals; // --> Article field 
-	private Integer articlesPublishedConferenceProceedings; // --> Article field
-	private Integer inetegralText; // AE12 --> Book field
+	private Integer publishedJournals; // --> Article field 
+	private Integer publishedConferenceProceedings; // --> Article field
+	private Integer integralText; // AE12 --> Book field
 	private Integer chapters; // AF12 --> Book field
 	private Integer collections; // AG12 --> Book field
 	private Integer entries; // AH12 --> Book field
-	private Integer publishedWorks; // 2007: Sum of V12, W12, X12, Y12, X12, AA12, AB12, AC12, AD12 --> Evaluation field
 	private Integer artisticProduction; // 2010: AI12 --> Evaluation field
-
 	public Integer getYear() {
 		return year;
 	}
@@ -80,24 +78,24 @@ public class EvaluationXlsRowFieldsStorage {
 	public void setDissertations(Integer dissertations) {
 		this.dissertations = dissertations;
 	}
-	public Integer getArticlesPublishedJournals() {
-		return articlesPublishedJournals;
+	public Integer getPublishedJournals() {
+		return publishedJournals;
 	}
-	public void setArticlesPublishedJournals(Integer articlesPublishedJournals) {
-		this.articlesPublishedJournals = articlesPublishedJournals;
+	public void setPublishedJournals(Integer publishedJournals) {
+		this.publishedJournals = publishedJournals;
 	}
-	public Integer getArticlesPublishedConferenceProceedings() {
-		return articlesPublishedConferenceProceedings;
+	public Integer getPublishedConferenceProceedings() {
+		return publishedConferenceProceedings;
 	}
-	public void setArticlesPublishedConferenceProceedings(
-			Integer articlesPublishedConferenceProceedings) {
-		this.articlesPublishedConferenceProceedings = articlesPublishedConferenceProceedings;
+	public void setPublishedConferenceProceedings(
+			Integer publishedConferenceProceedings) {
+		this.publishedConferenceProceedings = publishedConferenceProceedings;
 	}
-	public Integer getInetegralText() {
-		return inetegralText;
+	public Integer getIntegralText() {
+		return integralText;
 	}
-	public void setInetegralText(Integer inetegralText) {
-		this.inetegralText = inetegralText;
+	public void setIntegralText(Integer integralText) {
+		this.integralText = integralText;
 	}
 	public Integer getChapters() {
 		return chapters;
@@ -117,16 +115,12 @@ public class EvaluationXlsRowFieldsStorage {
 	public void setEntries(Integer entries) {
 		this.entries = entries;
 	}
-	public Integer getPublishedWorks() {
-		return publishedWorks;
-	}
-	public void setPublishedWorks(Integer publishedWorks) {
-		this.publishedWorks = publishedWorks;
-	}
 	public Integer getArtisticProduction() {
 		return artisticProduction;
 	}
 	public void setArtisticProduction(Integer artisticProduction) {
 		this.artisticProduction = artisticProduction;
 	}
+	
+	
 }
