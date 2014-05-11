@@ -43,6 +43,9 @@ public class TestExcelFileReader {
 		excelFR_2.setFileName("./src/xls/2010/Direito.xls");
 		excelFR_2.setYear(2010);
 		
+		assertEquals("./src/xls/2007/Antropologia_Arqueologia.xls", excelFR_1.getFileName());
+		assertEquals(2007, excelFR_1.getYear());
+		
 		assertEquals(excelFR_1.getEvaluationFromXslFile().get(0).getAcronym(), "UFRJ");
 		assertEquals(excelFR_1.getEvaluationFromXslFile().get(0).getName(), "ANTROPOLOGIA SOCIAL");
 		

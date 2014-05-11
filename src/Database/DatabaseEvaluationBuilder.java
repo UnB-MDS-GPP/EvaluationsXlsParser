@@ -1,6 +1,7 @@
 package Database;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import libraries.DataBaseStructures;
@@ -19,7 +20,8 @@ public class DatabaseEvaluationBuilder {
 
 	ArrayList<XlsRowFieldsStorage> xlsRowData;
 
-	public boolean createListXlsRowFieldsStorage(int ano) throws IOException {
+	public boolean createListXlsRowFieldsStorage(int ano) throws IOException,
+			ClassNotFoundException, SQLException {
 		ArrayList<String> files;
 		if (ListFiles.getAllXlsFilesFromFolder("./src/xls/" + ano + "/") != null) {
 
@@ -29,6 +31,7 @@ public class DatabaseEvaluationBuilder {
 			files = new ArrayList<String>();
 		}
 		if (files.size() != 0) {
+
 			try {
 				dsStructures = new DataBaseStructures();
 				dsStructures.initDB();
@@ -36,6 +39,7 @@ public class DatabaseEvaluationBuilder {
 				System.out.println("Nao pode criar o banco");
 				e.printStackTrace();
 			}
+
 			System.out.println("\t---=== " + ano + " ===---");
 			System.out.println("Total de arquivos de " + ano + ": "
 					+ files.size() + "\n");
@@ -62,6 +66,7 @@ public class DatabaseEvaluationBuilder {
 						System.out.println("Foi salvo no banco a linha "
 								+ (j + 1) + ".");
 					} catch (Exception e) {
+
 						System.out
 								.println("Nao pode salvar no banco os dados da linha "
 										+ (j + 1)
@@ -70,6 +75,7 @@ public class DatabaseEvaluationBuilder {
 						e.printStackTrace();
 						break;
 					}
+
 				}
 			}
 			return true;
