@@ -228,16 +228,16 @@ public class ExcelFileReader {
 
 		String data;
 		Double value = 0.0;
-	
+
 		for(int i = 0; i <= 8; i++) {
 			data = this.getValueFromCell(cellStoreVector, 12+i);
-		 
+
 			try {
 				value = Double.parseDouble(data);
 			} catch(Exception e) {
 				value = 0.0;
 			}
-		 
+
 		 	sumFields += value;
 		}
 		return sumFields.intValue();

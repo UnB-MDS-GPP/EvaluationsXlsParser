@@ -27,5 +27,4 @@ public class TestListFiles {
 		assertEquals(48, filesList.size());
 		assertEquals(".xls", xlsFile.substring(xlsFile.length()-4, xlsFile.length()));
 	}
-
 }

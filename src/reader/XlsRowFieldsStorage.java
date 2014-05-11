@@ -18,6 +18,7 @@ public class XlsRowFieldsStorage {
 	private Integer collections; // AG12 --> Book field
 	private Integer entries; // AH12 --> Book field
 	private Integer artisticProduction; // 2010: AI12 --> Evaluation field
+
 	public Integer getYear() {
 		return year;
 	}
@@ -121,6 +122,4 @@ public class XlsRowFieldsStorage {
 	public void setArtisticProduction(Integer artisticProduction) {
 		this.artisticProduction = artisticProduction;
 	}
-	
-	
 }

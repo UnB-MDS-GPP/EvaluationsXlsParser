@@ -31,14 +31,10 @@ public class TestBuildEvaluation {
 		outro.setAcronym("acronym");
 		outro.setName("Qualquer coisa");
 		BuildEvaluation bEvaluation = new BuildEvaluation(outro);
-		
-		
 	}
+
 	@Test
 	public void shouldCheckRelation() throws ClassNotFoundException, SQLException {
 		XlsRowFieldsStorage outro = new XlsRowFieldsStorage();
-		
-	
 	}
-
 }

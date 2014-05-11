@@ -20,16 +20,13 @@ public class TesteDatabaseEvaluationBuilder {
 
 	@Test
 	public void test() throws IOException, ClassNotFoundException, SQLException {
-		
 		DatabaseEvaluationBuilder db1 = new DatabaseEvaluationBuilder();
 		DatabaseEvaluationBuilder db2 = new DatabaseEvaluationBuilder();
-		
+
 		assertEquals(false, db1.createListXlsRowFieldsStorage(2017));
-		
+
 		db2.createListXlsRowFieldsStorage(2000);
 		DataBaseStructures dbStruct = new DataBaseStructures();
 		dbStruct.dropDB();
-		
 	}
-
 }

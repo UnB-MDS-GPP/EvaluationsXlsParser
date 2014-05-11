@@ -5,4 +5,6 @@ bin/*
 .classpath
 /bin
 *.db
+database.sqlite3.db
+database.sqlite3.db-journal
 *#
