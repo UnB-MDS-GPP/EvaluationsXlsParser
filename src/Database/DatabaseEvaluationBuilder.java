@@ -22,16 +22,13 @@ public class DatabaseEvaluationBuilder {
 	public boolean createListXlsRowFieldsStorage(int year) {
 		this.setXlsFilesFromFolder(year);
 
-		if (files.size() != 0) {
-			if (this.initializeDatabase()) {
-				this.passToDatabaseEachFile(year);
-			}
-
+		if ((this.files.size() > 0) && this.initializeDatabase()) {
+			this.passToDatabaseEachFile(year);
 			return true;
-		} else {
-			System.out.println("The year "+year+" could not be saved");
-			return false;
-		}
+		} 
+
+		System.out.println("The year "+year+" could not be saved");
+		return false;
 	}
 	
 	private void setXlsFilesFromFolder(int year) {
